@@ -1,0 +1,112 @@
+---
+import type { MarkdownHeading } from "astro";
+
+export interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+
+// Filter only h2, h3, and h4
+const tocHeadings = headings.filter(
+  heading => heading.depth >= 2 && heading.depth <= 4
+);
+---
+
+{
+  tocHeadings.length > 0 && (
+    <nav class="absolute top-0 left-full ml-4 hidden h-full w-48 xl:block 2xl:ml-8 2xl:w-64">
+      <div class="border-border sticky top-24 border-l-2 pl-4">
+        <h2 class="text-foreground mb-4 text-lg font-bold">
+          Table of Contents
+        </h2>
+        <ul class="flex flex-col gap-2 text-sm">
+          {tocHeadings.map(heading => (
+            <li>
+              <a
+                href={`#${heading.slug}`}
+                class:list={[
+                  "toc-link hover:text-accent block opacity-75 transition-colors hover:opacity-100",
+                  { "pl-4": heading.depth === 3, "pl-8": heading.depth === 4 },
+                ]}
+              >
+                {heading.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+  )
+}
+
+<script>
+  function setupIntersectionObserver() {
+    const headings = Array.from(
+      document.querySelectorAll(
+        "article h2[id], article h3[id], article h4[id]"
+      )
+    );
+
+    if (headings.length === 0) return;
+
+    let activeId = "";
+
+    const observer = new IntersectionObserver(
+      entries => {
+        // Find the first intersecting header
+        const intersectingEntry = entries.find(entry => entry.isIntersecting);
+
+        if (intersectingEntry) {
+          activeId = intersectingEntry.target.getAttribute("id") || "";
+        } else {
+          // If no heading is intersecting (e.g. we're between headings),
+          // we can look at all headings and find the one that is closest above the viewport center.
+          const scrollPos = window.scrollY;
+          let closestHeading = headings[0];
+          let minDistance = Infinity;
+
+          headings.forEach(heading => {
+            const headingPos = heading.getBoundingClientRect().top + scrollPos;
+            const distance = scrollPos + 150 - headingPos; // 150px offset for header
+            if (distance >= 0 && distance < minDistance) {
+              minDistance = distance;
+              closestHeading = heading;
+            }
+          });
+
+          if (closestHeading) {
+            activeId = closestHeading.getAttribute("id") || "";
+          }
+        }
+
+        if (!activeId) return;
+
+        const activeLink = document.querySelector(
+          `.toc-link[href="#${activeId}"]`
+        );
+        if (!activeLink) return;
+
+        // Remove active class from all links
+        document.querySelectorAll(".toc-link").forEach(link => {
+          link.classList.remove("text-accent", "font-medium", "opacity-100");
+          link.classList.add("opacity-75");
+        });
+
+        // Add active class to current link
+        activeLink.classList.add("text-accent", "font-medium", "opacity-100");
+        activeLink.classList.remove("opacity-75");
+      },
+      {
+        rootMargin: "-10% 0px -80% 0px", // Trigger when heading is in the top 10-20% of the screen
+        threshold: 0,
+      }
+    );
+
+    headings.forEach(heading => observer.observe(heading));
+  }
+
+  // Initialize on first load and page changes (View Transitions)
+  setupIntersectionObserver();
+  document.addEventListener("astro:page-load", setupIntersectionObserver);
+</script>
