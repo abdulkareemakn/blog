@@ -19,6 +19,11 @@ interface SiteConfig {
   dir?: "ltr" | "rtl" | "auto";
   /** Google Search Console verification meta tag value */
   googleVerification?: string;
+  /** Backend configuration for light and dark color schemes */
+  themeColor?: {
+    light?: "Paper Light" | "Nila" | "Jade";
+    dark?: "Paper Dark";
+  };
 }
 
 interface PostsConfig {
@@ -115,7 +120,7 @@ type ResolvedSiteConfig = Required<
     | "ogImage"
   >
 > &
-  Pick<SiteConfig, "profile" | "googleVerification">;
+  Pick<SiteConfig, "profile" | "googleVerification" | "themeColor">;
 
 export interface ResolvedAstroPaperConfig {
   site: ResolvedSiteConfig;

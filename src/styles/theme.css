@@ -11,8 +11,10 @@
 }
 
 /* Light theme values */
-:root,
-[data-theme="light"] {
+
+/* Paper Light */
+:root:not([data-theme="dark"])[data-theme-light="Paper Light"],
+[data-theme="light"][data-theme-light="Paper Light"] {
   --background: #fdfdfd;
   --foreground: #282728;
   --accent: #006cac;
@@ -22,13 +24,49 @@
   --border: #ece9e9;
 }
 
-/* Dark theme values */
-[data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
+/* Nila */
+:root:not([data-theme="dark"])[data-theme-light="Nila"],
+[data-theme="light"][data-theme-light="Nila"] {
+  --background: #f6f6fb;
+  --foreground: #0c0c19;
+  --accent: #6760b4;
+  --accent-foreground: #f3f3f3;
+  --muted: #dddcea;
+  --muted-foreground: #54515b;
+  --border: #d8d6ec;
+}
+
+/* Jade */
+:root:not([data-theme="dark"])[data-theme-light="Jade"],
+[data-theme="light"][data-theme-light="Jade"] {
+  --background: #f6fcf7;
+  --foreground: #060b07;
+  --accent: #027c6d;
   --accent-foreground: #ffffff;
-  --muted: #343f60;
-  --muted-foreground: #afb9ca;
-  --border: #ab4b08;
+  --muted: #c9e4e2;
+  --muted-foreground: #6b7280;
+  --border: #d4e1df;
+}
+
+/* Dark theme values */
+
+/* Paper Dark */
+[data-theme="dark"][data-theme-dark="Paper Dark"] {
+  --background: #2f3741;
+  --foreground: #e6e6e6;
+  --accent: #1ad9d9;
+  --accent-foreground: #0d2b2b;
+  --muted: #596b81;
+  --muted-foreground: #8faabb;
+  --border: #3b4655;
+}
+
+[data-theme="dark"][data-theme-dark="Paper Dark 2"] {
+  --background: #2f3741;
+  --foreground: #e6e6e6;
+  --accent: #1ad9d9;
+  --accent-foreground: #0d2b2b;
+  --muted: #596b81;
+  --muted-foreground: #8faabb;
+  --border: #3b4655;
 }
