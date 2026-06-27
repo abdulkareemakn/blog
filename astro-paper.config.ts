@@ -13,7 +13,7 @@ export default defineAstroPaperConfig({
         dir: "ltr",
         themeColor: {
             light: "Jade",
-            dark: "Paper Dark",
+            dark: "Espresso",
         },
     },
     posts: {

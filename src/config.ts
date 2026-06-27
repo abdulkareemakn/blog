@@ -18,10 +18,11 @@ const config: ResolvedAstroPaperConfig = {
         timezone: userConfig.site.timezone ?? "UTC",
         dir: userConfig.site.dir ?? "ltr",
         googleVerification:
-            userConfig.site.googleVerification || PUBLIC_GOOGLE_SITE_VERIFICATION,
+            userConfig.site.googleVerification ||
+            PUBLIC_GOOGLE_SITE_VERIFICATION,
         themeColor: {
             light: userConfig.site.themeColor?.light ?? "Jade",
-            dark: userConfig.site.themeColor?.dark ?? "Paper Dark",
+            dark: userConfig.site.themeColor?.dark ?? "Espresso",
         },
     },
     posts: {
