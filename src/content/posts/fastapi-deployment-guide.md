@@ -4,6 +4,7 @@ author: Abdul Kareem
 pubDatetime: 2026-06-24T16:00:00Z
 slug: fastapi-deployment-guide
 featured: true
+draft: false
 tags:
   - fastapi
 hideEditPost: true
