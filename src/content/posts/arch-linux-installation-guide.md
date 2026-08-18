@@ -136,6 +136,12 @@ systemctl enable fstrim.timer
 systemctl enable gdm
 ```
 
+#### Pacman Configuration
+```sh
+nvim /etc/pacman.conf
+```
+In the file, add `Color` and `ILoveCandy` to `[options]`.
+
 #### Account Setup
 
 ##### Password for `root` account
