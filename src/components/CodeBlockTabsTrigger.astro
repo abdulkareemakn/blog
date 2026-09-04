@@ -1,0 +1,27 @@
+---
+interface Props {
+  /** Must match the value of a sibling CodeBlockTab */
+  value: string;
+  class?: string;
+  [key: string]: unknown;
+}
+
+const { value, class: className, ...rest } = Astro.props;
+---
+
+<button
+  type="button"
+  role="tab"
+  data-tabs-trigger={value}
+  id={`cbt-tab-${value}`}
+  aria-controls={`cbt-panel-${value}`}
+  aria-selected="false"
+  tabindex="-1"
+  class:list={[
+    "-mb-px border-b-2 border-transparent px-3 py-2 text-sm font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground aria-selected:border-accent aria-selected:text-accent",
+    className
+  ]}
+  {...rest}
+>
+  <slot />
+</button>

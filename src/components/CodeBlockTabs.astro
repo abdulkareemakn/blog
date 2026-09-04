@@ -1,0 +1,147 @@
+---
+interface Props {
+  defaultValue?: string;
+  persist?: boolean;
+  groupId?: string;
+  class?: string;
+  [key: string]: unknown;
+}
+
+const {
+  defaultValue,
+  persist,
+  groupId,
+  class: className,
+  ...rest
+} = Astro.props;
+
+const persistId = persist && groupId ? groupId : undefined;
+---
+
+<div
+  data-codeblock-tabs
+  data-value={defaultValue}
+  data-persist-id={persistId}
+  class:list={["my-4 w-full", className]}
+  {...rest}
+>
+  <slot />
+</div>
+
+<script>
+  const STORAGE_PREFIX = "codeblock-tabs:";
+
+  function selectTab(tabs: HTMLElement, value: string) {
+    tabs.dataset.value = value;
+
+    const persistId = tabs.dataset.persistId;
+    if (persistId) {
+      try {
+        localStorage.setItem(STORAGE_PREFIX + persistId, value);
+      } catch {
+        /* storage unavailable */
+      }
+    }
+
+    for (const trigger of tabs.querySelectorAll<HTMLButtonElement>(
+      "[data-tabs-trigger]"
+    )) {
+      const active = trigger.dataset.tabsTrigger === value;
+      trigger.setAttribute("aria-selected", String(active));
+      trigger.tabIndex = active ? 0 : -1;
+    }
+
+    for (const panel of tabs.querySelectorAll<HTMLElement>(
+      "[data-tabs-panel]"
+    )) {
+      panel.classList.toggle("hidden", panel.dataset.tabsPanel !== value);
+    }
+  }
+
+  function setupCodeBlockTabs() {
+    for (const tabs of document.querySelectorAll<HTMLElement>(
+      "[data-codeblock-tabs]"
+    )) {
+      const triggers = [
+        ...tabs.querySelectorAll<HTMLButtonElement>("[data-tabs-trigger]")
+      ];
+      if (triggers.length === 0) continue;
+
+      let value =
+        tabs.dataset.value ?? triggers[0]?.dataset.tabsTrigger ?? undefined;
+      if (!value) continue;
+
+      const persistId = tabs.dataset.persistId;
+      if (persistId) {
+        try {
+          const saved = localStorage.getItem(STORAGE_PREFIX + persistId);
+          if (
+            saved &&
+            triggers.some(trigger => trigger.dataset.tabsTrigger === saved)
+          ) {
+            value = saved;
+          }
+        } catch {
+          /* storage unavailable */
+        }
+      }
+
+      selectTab(tabs, value);
+    }
+  }
+
+  document.addEventListener("click", event => {
+    const target = event.target instanceof Element ? event.target : null;
+    const trigger = target?.closest<HTMLElement>("[data-tabs-trigger]");
+    if (!trigger) return;
+
+    const tabs = trigger.closest<HTMLElement>("[data-codeblock-tabs]");
+    if (!tabs) return;
+
+    if (trigger.dataset.tabsTrigger) selectTab(tabs, trigger.dataset.tabsTrigger);
+  });
+
+  document.addEventListener("keydown", event => {
+    const target = event.target instanceof Element ? event.target : null;
+    const trigger = target?.closest<HTMLElement>("[data-tabs-trigger]");
+    if (!trigger) return;
+
+    const tabs = trigger.closest<HTMLElement>("[data-codeblock-tabs]");
+    if (!tabs) return;
+
+    const triggers = [
+      ...tabs.querySelectorAll<HTMLButtonElement>("[data-tabs-trigger]")
+    ];
+    const index = triggers.indexOf(trigger as HTMLButtonElement);
+
+    let next: number | undefined;
+    switch (event.key) {
+      case "ArrowRight":
+        next = (index + 1) % triggers.length;
+        break;
+      case "ArrowLeft":
+        next = (index - 1 + triggers.length) % triggers.length;
+        break;
+      case "Home":
+        next = 0;
+        break;
+      case "End":
+        next = triggers.length - 1;
+        break;
+      default:
+        return;
+    }
+
+    event.preventDefault();
+    const nextTrigger = triggers[next];
+    if (!nextTrigger) return;
+    nextTrigger.focus();
+    if (nextTrigger.dataset.tabsTrigger) {
+      selectTab(tabs, nextTrigger.dataset.tabsTrigger);
+    }
+  });
+
+  // Initialize on first load and re-init after View Transition swaps
+  setupCodeBlockTabs();
+  document.addEventListener("astro:page-load", setupCodeBlockTabs);
+</script>

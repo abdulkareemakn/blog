@@ -10,6 +10,7 @@ import sitemap from "@astrojs/sitemap";
 import expressiveCode from "astro-expressive-code";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
+import { remarkNpm } from "fumadocs-core/mdx-plugins";
 import config from "./astro-paper.config";
 
 export default defineConfig({
@@ -30,7 +31,11 @@ export default defineConfig({
     },
   },
   markdown: {
-    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
+    remarkPlugins: [
+      remarkToc,
+      [remarkCollapse, { test: "Table of contents" }],
+      remarkNpm,
+    ],
   },
   vite: {
     plugins: [tailwindcss()],
