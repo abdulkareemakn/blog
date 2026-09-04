@@ -1,0 +1,19 @@
+---
+interface Props {
+  class?: string;
+  [key: string]: unknown;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<div
+  role="tablist"
+  class:list={[
+    "border-border flex gap-1 overflow-x-auto border-b",
+    className
+  ]}
+  {...rest}
+>
+  <slot />
+</div>

@@ -1,0 +1,21 @@
+---
+interface Props {
+  /** Panel value; shown when the matching CodeBlockTabsTrigger is selected */
+  value: string;
+  class?: string;
+  [key: string]: unknown;
+}
+
+const { value, class: className, ...rest } = Astro.props;
+---
+
+<div
+  role="tabpanel"
+  data-tabs-panel={value}
+  id={`cbt-panel-${value}`}
+  aria-labelledby={`cbt-tab-${value}`}
+  class:list={["hidden", className]}
+  {...rest}
+>
+  <slot />
+</div>
