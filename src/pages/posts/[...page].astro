@@ -1,40 +1,70 @@
 ---
-import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
-import Layout from "@/layouts/Layout.astro";
-import Header from "@/components/Header.astro";
-import Breadcrumb from "@/components/Breadcrumb.astro";
-import Main from "@/components/Main.astro";
-import Card from "@/components/Card.astro";
-import Footer from "@/components/Footer.astro";
-import Pagination from "@/components/Pagination.astro";
-import { getSortedPosts } from "@/utils/getSortedPosts";
-import { useTranslations } from "@/i18n";
-import config from "@/config";
+import type { GetStaticPaths, Page } from "astro";
+import PostCard from "@/components/PostCard.astro";
+import SiteFooter from "@/components/SiteFooter.astro";
+import SiteHeader from "@/components/SiteHeader.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { siteConfig } from "@/config/site";
+import { visiblePosts, type Post } from "@/lib/posts";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const posts = await getCollection("posts", ({ data }) => !data.draft);
-  return paginate(getSortedPosts(posts), { pageSize: config.posts.perPage });
+  const posts = visiblePosts(await getCollection("posts"));
+  return paginate(posts, { pageSize: 4 });
 }) satisfies GetStaticPaths;
 
-const { page } = Astro.props;
+interface Props {
+  page: Page<Post>;
+}
 
-const locale = Astro.currentLocale ?? config.site.lang;
-const t = useTranslations(locale);
+const { page } = Astro.props;
+const title = page.currentPage === 1 ? "Archive" : `Archive - Page ${page.currentPage}`;
+const description = `Every post published on ${siteConfig.name}.`;
+const withTrailingSlash = (url: string | undefined) => (url && !url.endsWith("/") ? `${url}/` : url);
+const prevUrl = withTrailingSlash(page.url.prev);
+const nextUrl = withTrailingSlash(page.url.next);
 ---
 
-<Layout title={`${t.pages.postsTitle} | ${config.site.title}`}>
-  <Header />
+<BaseLayout title={title} description={description} prevUrl={prevUrl} nextUrl={nextUrl}>
+  <SiteHeader />
+  <main id="content" class="outer">
+    <div class="canvas">
+      <header class="pagehead">
+        <p class="eyebrow">Archive</p>
+        <h1 class="pagehead-title">All posts</h1>
+        <p class="pagehead-description">
+          {page.total} {page.total === 1 ? "post" : "posts"}, newest first. Page {page.currentPage} of {page.lastPage}.
+        </p>
+      </header>
 
-  <Breadcrumb />
+      <div class="feed">
+        {page.data.map((post) => <PostCard post={post} />)}
+      </div>
 
-  <Main pageTitle={t.pages.postsTitle} pageDesc={t.pages.postsDesc}>
-    <ul>
-      {page.data.map(data => <Card {...data} />)}
-    </ul>
-  </Main>
-
-  <Pagination {page} />
-
-  <Footer noMarginTop={page.lastPage > 1} />
-</Layout>
+      <nav class="mt-16 flex items-center justify-between gap-4 border-t border-border pt-6" aria-label="Archive pagination">
+        {
+          prevUrl ? (
+            <a href={prevUrl} class="nav-link link-nudge">
+              <span class="link-nudge__arrow link-nudge__arrow--prev">&larr;</span> Newer
+            </a>
+          ) : (
+            <span class="nav-link opacity-40">&larr; Newer</span>
+          )
+        }
+        <span class="text-xs tracking-widest text-muted-foreground uppercase">
+          Page {page.currentPage} / {page.lastPage}
+        </span>
+        {
+          nextUrl ? (
+            <a href={nextUrl} class="nav-link link-nudge">
+              Older <span class="link-nudge__arrow link-nudge__arrow--next">&rarr;</span>
+            </a>
+          ) : (
+            <span class="nav-link opacity-40">Older &rarr;</span>
+          )
+        }
+      </nav>
+    </div>
+  </main>
+  <SiteFooter />
+</BaseLayout>

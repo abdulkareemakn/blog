@@ -1,0 +1,241 @@
+[
+  {
+    "path": "about/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/about/",
+    "headings": []
+  },
+  {
+    "path": "index.html",
+    "canonical": "https://abdulkareem.is-a.dev/",
+    "headings": []
+  },
+  {
+    "path": "posts/2/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/posts/2/",
+    "headings": []
+  },
+  {
+    "path": "posts/ai-proofing-env-secrets/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/posts/ai-proofing-env-secrets/",
+    "headings": [
+      "problem-statement",
+      "circumventing-the-sandbox",
+      "using-cat",
+      "using-python",
+      "my-requirements",
+      "the-solution-varlock",
+      "installation",
+      "storing-secrets-with-pass",
+      "installation-1",
+      "generating-the-pgp-keys",
+      "initializing-the-password-store",
+      "backing-up-to-git",
+      "building-a-sample-project",
+      "generating-the-schema",
+      "wiring-up-pass",
+      "integrations",
+      "versions",
+      "conclusion",
+      "footnote-label"
+    ]
+  },
+  {
+    "path": "posts/arch-linux-install-guide/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/posts/arch-linux-install-guide/",
+    "headings": [
+      "introduction",
+      "setting-keyboard-layout-and-font",
+      "connect-to-the-internet",
+      "verify-the-connection",
+      "partitioning-and-formatting",
+      "mounting-the-file-system",
+      "updaing-pacman-mirrors",
+      "installing-the-base-system",
+      "generate-fstab",
+      "configuring-the-system",
+      "timezone",
+      "localization",
+      "hostname",
+      "bootloader",
+      "enabling-services",
+      "pacman-configuration",
+      "account-setup",
+      "password-for-root-account",
+      "creating-a-new-user",
+      "reboot",
+      "installing-an-aur-helper",
+      "installing-my-packages",
+      "configuring-my-applications",
+      "bluetooth",
+      "wallpapers",
+      "lua-development",
+      "audio-and-brightness",
+      "conclusion"
+    ]
+  },
+  {
+    "path": "posts/fastapi-deployment-guide/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/posts/fastapi-deployment-guide/",
+    "headings": [
+      "introduction",
+      "fastapi-cloud",
+      "setting-up-the-project",
+      "deploying-the-project",
+      "envrionment-variables-and-secrets",
+      "environment-variables",
+      "secrets",
+      "setting-up-git-integration",
+      "adding-a-custom-domain",
+      "integrations",
+      "conclusion"
+    ]
+  },
+  {
+    "path": "posts/favorite-command-line-tools/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/posts/favorite-command-line-tools/",
+    "headings": [
+      "introduction",
+      "terminal-emulator",
+      "eza",
+      "yazi",
+      "bat",
+      "btop",
+      "lazygit",
+      "conclusion"
+    ]
+  },
+  {
+    "path": "posts/grimmory-install-guide/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/posts/grimmory-install-guide/",
+    "headings": [
+      "creating-the-directory-structure",
+      "setting-up-environment-variables",
+      "creating-the-compose-file",
+      "starting-the-container"
+    ]
+  },
+  {
+    "path": "posts/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/posts/",
+    "headings": []
+  },
+  {
+    "path": "posts/jellyfin-install-guide/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/posts/jellyfin-install-guide/",
+    "headings": [
+      "introduction",
+      "background",
+      "why-jellyfin-is-a-better-choice-than-plex",
+      "offline-download",
+      "hardware-acceleration",
+      "authentication",
+      "installation",
+      "selecting-the-image",
+      "directory-structure",
+      "compose",
+      "starting-the-container",
+      "web-interface",
+      "plugins",
+      "client-applications",
+      "--android",
+      "--iosipados",
+      "--windowsmacoslinux",
+      "conclusion"
+    ]
+  },
+  {
+    "path": "posts/mapping-caps-lock-to-esc/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/posts/mapping-caps-lock-to-esc/",
+    "headings": [
+      "my-neovim-journey",
+      "the-problem-with-escaping-insert-mode",
+      "solutions",
+      "option-1-map-jk--kj-to-escape",
+      "option-2-remap-caps-lock-the-better-way",
+      "why-caps-lock-is-the-perfect-candidate",
+      "setting-up-interception-tools",
+      "installation",
+      "arch-linux",
+      "ubuntu",
+      "fedora",
+      "configuration",
+      "starting-the-service",
+      "conclusion"
+    ]
+  },
+  {
+    "path": "search/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/search/",
+    "headings": []
+  },
+  {
+    "path": "tags/ai/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/tags/ai/",
+    "headings": []
+  },
+  {
+    "path": "tags/arch/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/tags/arch/",
+    "headings": []
+  },
+  {
+    "path": "tags/devops/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/tags/devops/",
+    "headings": []
+  },
+  {
+    "path": "tags/docker/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/tags/docker/",
+    "headings": []
+  },
+  {
+    "path": "tags/fastapi/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/tags/fastapi/",
+    "headings": []
+  },
+  {
+    "path": "tags/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/tags/",
+    "headings": []
+  },
+  {
+    "path": "tags/jellyfin/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/tags/jellyfin/",
+    "headings": []
+  },
+  {
+    "path": "tags/linux/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/tags/linux/",
+    "headings": []
+  },
+  {
+    "path": "tags/neovim/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/tags/neovim/",
+    "headings": []
+  },
+  {
+    "path": "tags/open-source/2/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/tags/open-source/2/",
+    "headings": []
+  },
+  {
+    "path": "tags/open-source/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/tags/open-source/",
+    "headings": []
+  },
+  {
+    "path": "tags/secrets-management/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/tags/secrets-management/",
+    "headings": []
+  },
+  {
+    "path": "tags/security/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/tags/security/",
+    "headings": []
+  },
+  {
+    "path": "tags/self-host/index.html",
+    "canonical": "https://abdulkareem.is-a.dev/tags/self-host/",
+    "headings": []
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "embeddedLanguageFormatting": "off",
+  "ignorePatterns": [
+    "**/*.astro",
+    "**/*.md",
+    "**/*.mdx",
+    "**/*.html",
+    "**/*.svg",
+    "pnpm-lock.yaml",
+    ".astro/",
+    "dist/",
+    ".agents/",
+    ".codex/",
+    "public/pagefind/",
+    "public/fonts/"
+  ]
+}
