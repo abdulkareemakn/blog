@@ -57,6 +57,7 @@ const schema = structuredData ?? defaultStructuredData;
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title={siteConfig.title} href={new URL("/rss.xml", siteConfig.siteUrl)} />
     {prevUrl && <link rel="prev" href={new URL(prevUrl, siteConfig.siteUrl).toString()} />}
     {nextUrl && <link rel="next" href={new URL(nextUrl, siteConfig.siteUrl).toString()} />}
     {noindex && <meta name="robots" content="noindex, nofollow" />}

@@ -77,5 +77,8 @@ test("migration preserves published URLs, anchors, metadata, and assets", async 
   assert.equal(await exists("dist/sitemap.xml"), false);
   const sitemap = await readFile("dist/sitemap-0.xml", "utf8");
   assert.ok(!sitemap.includes(`${origin}/search/`));
+  const rss = await readFile("dist/rss.xml", "utf8");
+  assert.ok(rss.includes(`<link>${origin}/posts/ai-proofing-env-secrets/</link>`));
+  assert.ok(!rss.includes("/post/"));
   assert.ok(await exists("dist/pagefind/pagefind.js"));
 });
