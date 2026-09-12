@@ -2,14 +2,12 @@
 title: "Jellyfin: The Free and Open Source alternative to Plex"
 description: Jellyfin, a free and open source media server that lets you stream your media from your own server to any device.
 pubDatetime: 2026-05-24T14:00:00Z
-author: Abdul Kareem
-slug: jellyfin-install-guide
-featured: true
-hideEditPost: true
 tags:
-  - open source
+  - open-source
   - jellyfin
   - docker
+slug: jellyfin-install-guide
+featured: true
 ---
 
 [![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%203.svg)](https://www.digitalocean.com/?refcode=6609dec273fa&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)

@@ -1,15 +1,12 @@
 ---
 title: Your introduction to Typst, the modern alternative to LaTeX
 description: Typst, a modern typesetting system with blazing fast compilations and various output formats.
-slug: typst-a-modern-alternative-to-latex
 pubDatetime: 2026-08-16T19:00:00Z
-author: Abdul Kareem
-featured: false
-draft: true
-hideEditPost: true
-tags: 
+tags:
   - typst
-  - open source
+  - open-source
+slug: typst-a-modern-alternative-to-latex
+draft: true
 ---
 
 ## What is Typst

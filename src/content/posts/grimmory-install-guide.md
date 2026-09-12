@@ -1,14 +1,11 @@
 ---
-author: Abdul Kareem
-pubDatetime: 2026-04-27T11:00:00Z
 title: "A guide to installing Grimmory: Your self hosted digital library"
-slug: grimmory-install-guide
-featured: true
+description: Learn how to host your own digital library using Grimmory.
+pubDatetime: 2026-04-27T11:00:00Z
 tags:
   - self-host
   - open-source
-description: Learn how to host your own digital library using Grimmory.
-hideEditPost: true
+featured: true
 ---
 
 [![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%203.svg)](https://www.digitalocean.com/?refcode=6609dec273fa&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)

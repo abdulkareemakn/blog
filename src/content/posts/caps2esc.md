@@ -1,15 +1,13 @@
 ---
-author: Abdul Kareem
-pubDatetime: 2026-05-03T15:50:00+05:00
 title: Remapping Caps Lock to Escape on Linux
 description: Turning one of the least used keys on the keyboard to (arguably) the most used.
-slug: mapping-caps-lock-to-esc
-featured: true
+pubDatetime: 2026-05-03T10:50:00Z
 tags:
   - arch
   - open-source
   - neovim
-hideEditPost: true
+slug: mapping-caps-lock-to-esc
+featured: true
 ---
 
 ## My Neovim Journey

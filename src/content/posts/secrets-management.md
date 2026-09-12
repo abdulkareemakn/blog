@@ -2,16 +2,14 @@
 title: Your AI Agent Will Read Your .env File Anyway
 description: AI coding agents don't stop at a denied permission prompt; here's how I locked my secrets away from them using Varlock and a GPG-backed password store.
 pubDatetime: 2026-08-22T08:30:00Z
-author: Abdul Kareem
+tags:
+  - ai
+  - linux
+  - security
+  - devops
+  - secrets-management
 slug: ai-proofing-env-secrets
 featured: true
-hideEditPost: true
-tags: 
-  - AI
-  - Linux
-  - Security
-  - DevOps
-  - Secrets Management
 ---
 
 ## Problem Statement

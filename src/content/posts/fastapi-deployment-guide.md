@@ -1,14 +1,10 @@
 ---
 title: Deploying a FastAPI application on FastAPI Cloud
-author: Abdul Kareem
+description: A guide to deploy your FastAPI applications on FastAPI Cloud
 pubDatetime: 2026-06-24T16:00:00Z
-slug: fastapi-deployment-guide
-featured: true
-draft: false
 tags:
   - fastapi
-hideEditPost: true
-description: A guide to deploy your FastAPI applications on FastAPI Cloud
+featured: true
 ---
 
 ## Introduction

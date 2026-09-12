@@ -2,13 +2,10 @@
 title: Creating Beautiful Screenshots in Neovim
 description: Ever want to take a proper, high quality screenshot of your code and share it? Find out how in this post.
 pubDatetime: 2026-08-16T19:00:00Z
-author: Abdul Kareem
-featured: false
-hideEditPost: true
-draft: true
 tags:
   - neovim
-  - open source
+  - open-source
+draft: true
 ---
 
 ## Introduction

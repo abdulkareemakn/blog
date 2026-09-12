@@ -2,12 +2,9 @@
 title: My favorite command line tools
 description: A listing of my favorite command line tools sorted by most used.
 pubDatetime: 2026-05-10T19:00:00Z
-author: Abdul Kareem
-featured: false
+tags:
+  - open-source
 slug: favorite-command-line-tools
-hideEditPost: true
-tags: 
-    - open-source
 ---
 
 ## Introduction
