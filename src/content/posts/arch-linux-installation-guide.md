@@ -196,6 +196,27 @@ From the previous step, I have already cloned my dotfiles repository from GitHub
 stow bat btop dunst eza hyprland kitty lazygit nvim oh-my-posh rofi waybar yazi zsh
 ```
 
+#### Bluetooth
+```sh
+paru -S bluez bluez-utils bluetui
+```
+
+#### Wallpapers
+```sh
+paru -S awww
+# Also set it up in hyprland configuration
+```
+
+#### Lua Development
+```sh
+paru -S stylua lua-language-server
+```
+
+#### Audio and Brightness
+```sh
+paru -S playerctl brightnessctl
+```
+
 ### Conclusion
 
 That's it. My Arch Linux system is now ready and configured and I can begin using it. I hope this guide was useful for you and provides an insight into an opinionated Arch Linux install. Thanks for reading. Goodbye.
