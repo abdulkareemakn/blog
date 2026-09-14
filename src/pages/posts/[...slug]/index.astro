@@ -244,44 +244,6 @@ const structuredData = {
       });
     });
 
-    /* Progressive enhancement: every code block in the article body gets a copy
-       button, added client-side so the rendered HTML stays plain. */
-    document.querySelectorAll(".prose pre").forEach((pre, index) => {
-      if (pre.closest(".code-copy-frame")) return;
-
-      const code = pre.querySelector("code");
-      const frame = document.createElement("div");
-      const button = document.createElement("button");
-      const liveRegion = document.createElement("span");
-      const labelId = `code-copy-${index}`;
-
-      frame.className = "code-copy-frame";
-      button.type = "button";
-      button.className = "code-copy-button";
-      button.setAttribute("aria-describedby", labelId);
-      button.textContent = "Copy";
-      liveRegion.id = labelId;
-      liveRegion.className = "sr-only";
-      liveRegion.setAttribute("aria-live", "polite");
-
-      pre.parentNode?.insertBefore(frame, pre);
-      frame.append(pre, button, liveRegion);
-
-      button.addEventListener("click", async () => {
-        try {
-          if (!navigator.clipboard?.writeText) throw new Error("Clipboard API unavailable");
-          await navigator.clipboard.writeText(code?.textContent ?? pre.textContent ?? "");
-          button.textContent = "Copied";
-          liveRegion.textContent = "Code copied";
-        } catch {
-          button.textContent = "Failed";
-          liveRegion.textContent = "Copy failed";
-        }
-        window.setTimeout(() => {
-          button.textContent = "Copy";
-        }, 1800);
-      });
-    });
   </script>
 
   <style>

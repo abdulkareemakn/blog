@@ -35,8 +35,8 @@ Drafts are excluded; future-dated non-drafts publish immediately.
 
 Monograph's `Callout`, `CodeGroup`, and `CodeGroupItem` are registered for MDX.
 Package-manager examples use explicitly authored variants. Detailed code-block
-behavior remains to be discussed; existing Expressive Code annotations such as
-line numbers and titles are not implemented by the current Shiki baseline.
+formatting uses Expressive Code with opt-in titles and line numbers; untitled
+blocks keep Copy overlaid in the upper-right without a separate toolbar row.
 
 OG images are generated at build time with Satori, Sharp, and bundled Geist TTFs.
 Existing `ogImage` overrides take precedence in social metadata. No font download is

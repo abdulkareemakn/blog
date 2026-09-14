@@ -55,27 +55,8 @@
     outline-offset: -2px;
   }
 
-  .code-group-panels :global(pre) {
+  .code-group-panels :global(.expressive-code) {
     margin: 0 !important;
-    border: 0 !important;
-  }
-
-  /* [slug].astro wraps every `.prose pre` in a .code-copy-frame; that adds its
-     own margin and reserves top padding on the pre so the copy button has room
-     above the code. Both stack badly on top of this panel's own compact
-     padding, so collapse them: the button can sit over the code's normal
-     padding instead of pushing it down. */
-  .code-group-panels :global(.code-copy-frame) {
-    margin: 0 !important;
-  }
-
-  .code-group-panels :global(.code-copy-frame pre) {
-    padding-top: 1rem !important;
-  }
-
-  .code-group-panels :global(.code-copy-button) {
-    top: 0.5rem !important;
-    right: 0.5rem !important;
   }
 
   .code-group.is-enhanced :global([data-code-tab-panel]) {

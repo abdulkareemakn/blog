@@ -24,10 +24,12 @@ Task tracking belongs in Todoist under `blog/dev`, using `feature`, `chore`,
   Astro templates use `astro check`; no fallback formatter/linter is configured.
 - Remove Monograph's custom sitemap wrapper and use the maintained sitemap
   integration, with robots.txt referencing its generated sitemap index.
+- Render code blocks with Expressive Code using GitHub light and dark syntax
+  themes. Titles and line numbers remain opt-in, Copy overlays untitled blocks
+  without adding a toolbar row, and CodeGroup variants remain manually authored.
 
 ## Integration and decision status
 
-- Discuss code-block behavior later; the package-manager approach above is settled.
 - Re-add comments and analytics separately rather than porting their integrations.
 - Configure Google Search Console verification and appropriate head metadata.
   Domain properties require DNS verification; HTML head verification applies to
