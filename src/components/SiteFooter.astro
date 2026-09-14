@@ -2,7 +2,7 @@
 import LocalIcon from "@/components/LocalIcon.astro";
 import { footerNavigation, siteConfig } from "@/config/site";
 
-const socialIconByLabel = { X: "twitter-x", LinkedIn: "linkedin" } as const;
+const socialIconByLabel = { GitHub: "github", X: "twitter-x", LinkedIn: "linkedin", Email: "mail" } as const;
 
 const socials = siteConfig.socials.map((item) => ({
   ...item,

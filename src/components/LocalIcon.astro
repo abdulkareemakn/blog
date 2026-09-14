@@ -7,12 +7,16 @@ import rss from "@/icons/bootstrap/rss.svg?raw";
 import tiktok from "@/icons/bootstrap/tiktok.svg?raw";
 import twitterX from "@/icons/bootstrap/twitter-x.svg?raw";
 import youtube from "@/icons/bootstrap/youtube.svg?raw";
+import github from "@/assets/icons/socials/github.svg?raw";
+import mail from "@/assets/icons/socials/mail.svg?raw";
 
 const icons = {
   facebook,
+  github,
   instagram,
   "link-45deg": link45deg,
   linkedin,
+  mail,
   rss,
   tiktok,
   "twitter-x": twitterX,
@@ -31,7 +35,7 @@ const icon = icons[name];
 ---
 
 <span
-  class:list={["inline-grid place-items-center [&>svg]:h-full [&>svg]:w-full [&>svg]:fill-current", className]}
+  class:list={["inline-grid place-items-center [&>svg]:h-full [&>svg]:w-full", className]}
   aria-hidden="true"
   set:html={icon}
 />
