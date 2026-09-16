@@ -55,6 +55,9 @@ const schema = structuredData ?? defaultStructuredData;
     <link rel="preload" href="/fonts/geist/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    {import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION && (
+      <meta name="google-site-verification" content={import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION} />
+    )}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonical} />
     <link rel="alternate" type="application/rss+xml" title={siteConfig.title} href={new URL("/rss.xml", siteConfig.siteUrl)} />
@@ -75,6 +78,11 @@ const schema = structuredData ?? defaultStructuredData;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={absoluteImage} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schema).replaceAll("<", "\\u003c")} />
+    <script
+      is:inline
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="f87c0a24-b9ec-4776-8afa-9594077bd016"></script>
     <script is:inline>
       /*
        * Runs before first paint so the stored reading mode is applied without a

@@ -42,6 +42,10 @@ OG images are generated at build time with Satori, Sharp, and bundled Geist TTFs
 Existing `ogImage` overrides take precedence in social metadata. No font download is
 needed during a build. Fonts and theme assets retain their licenses.
 
+Comments use the original Giscus repository, Announcements category, and pathname
+mapping so existing discussions stay associated with their posts. The embed follows
+the reader’s selected light/dark mode. No additional package is required.
+
 ## Tooling limits
 
 Oxfmt runs only on native formats with embedded formatting disabled. Markdown,
@@ -51,6 +55,6 @@ Astro template linting. `astro check` validates Astro templates and types.
 See [Oxc language support](https://oxc.rs/docs/guide/usage/formatter/language-support)
 and [compatibility](https://oxc.rs/compatibility).
 
-This is a migration preview. Comments, analytics, and Search Console integration are
+This is a migration preview. Analytics and Search Console integration are
 deferred; do not replace the live site until required launch integrations and
 URL behavior have been verified.

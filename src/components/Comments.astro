@@ -1,0 +1,39 @@
+<section class="canvas mt-16 border-t border-border pt-8" aria-labelledby="comments-heading" data-pagefind-ignore>
+  <h2 id="comments-heading" class="section-title">Comments</h2>
+  <div class="giscus"></div>
+  <noscript>Enable JavaScript to view comments powered by Giscus.</noscript>
+</section>
+
+<script is:inline>
+  (() => {
+    const container = document.querySelector(".giscus");
+    const root = document.documentElement;
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    Object.assign(script.dataset, {
+      repo: "abdulkareemakn/blog",
+      repoId: "R_kgDOSMO_1w",
+      category: "Announcements",
+      categoryId: "DIC_kwDOSMO_184C78w-",
+      mapping: "pathname",
+      strict: "0",
+      reactionsEnabled: "1",
+      emitMetadata: "0",
+      inputPosition: "top",
+      theme: root.dataset.theme,
+      lang: "en",
+    });
+    const syncTheme = () => {
+      script.dataset.theme = root.dataset.theme;
+      container.querySelector("iframe.giscus-frame")?.contentWindow?.postMessage(
+        { giscus: { setConfig: { theme: root.dataset.theme } } },
+        "https://giscus.app",
+      );
+    };
+    container.addEventListener("load", syncTheme, true);
+    new MutationObserver(syncTheme).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+    container.append(script);
+  })();
+</script>

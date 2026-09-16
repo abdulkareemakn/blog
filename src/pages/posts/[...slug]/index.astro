@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import { getCollection, render } from "astro:content";
 import TableOfContents from "@/components/TableOfContents.astro";
+import Comments from "@/components/Comments.astro";
 import LocalIcon from "@/components/LocalIcon.astro";
 import PostCard from "@/components/PostCard.astro";
 import SiteFooter from "@/components/SiteFooter.astro";
@@ -206,6 +207,8 @@ const structuredData = {
         </footer>
       )}
     </article>
+
+    <Comments />
 
     {related.length > 0 && (
       <section class="canvas mt-[var(--space-section)]" aria-labelledby="keep-reading">

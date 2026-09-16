@@ -30,7 +30,8 @@ Task tracking belongs in Todoist under `blog/dev`, using `feature`, `chore`,
 
 ## Integration and decision status
 
-- Re-add comments and analytics separately rather than porting their integrations.
+- Giscus comments are restored using the original repository, category, and pathname
+  mapping, with the embed synchronized to the blog theme. Analytics remains deferred.
 - Configure Google Search Console verification and appropriate head metadata.
   Domain properties require DNS verification; HTML head verification applies to
   URL-prefix properties. See [Google's verification documentation](https://support.google.com/webmasters/answer/9008080).
@@ -80,11 +81,11 @@ The optional `cover` object contains `src`, `alt`, and optional credit name and 
 absolute HTTPS override used only when another URL is genuinely canonical. Author,
 category, edit-link, and per-post timezone fields are intentionally absent.
 
-The old comments, analytics, and Search Console verification have not been carried
-forward. RSS has been rebuilt with Astro's maintained integration and preserves the
+The old Giscus comments configuration has been carried forward. Analytics and
+Search Console verification remain outstanding. RSS has been rebuilt with Astro's maintained integration and preserves the
 published post URLs. The remaining items are deferred launch work. Do not deploy this
 preview over the live blog yet. The remaining migration follow-ups are tracked in
 [Todoist: Blog / Dev](https://app.todoist.com/app/section/dev-6hVV26FJ5HpfCh3W),
 using `feature`, `chore`, `refactor`, and `fix`. Frontmatter, Markdown migration,
-taxonomy, RSS, and Oxfmt tasks have been completed; code-block discussion, comments,
+taxonomy, RSS, and Oxfmt tasks have been completed; code-block discussion,
 analytics, Search Console, and live URL verification remain open.
