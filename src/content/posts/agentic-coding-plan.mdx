@@ -1,0 +1,92 @@
+---
+title: Choosing an agentic coding plan
+description: Compare the major agentic coding plans, free coding agents, and API options from OpenAI, Anthropic, Google, OpenCode, Cline, and OpenRouter—and choose the setup that fits your budget and workflow.
+slug: choosing-an-agentic-coding-plan
+pubDatetime: 2026-09-16T21:00:00Z
+tags:
+  - agents
+featured: true
+---
+
+## Introduction
+Hi everyone. I'll be detailing the various coding plans offered by Claude, OpenAI, Google and others. I'll also make specific recommendations for various use cases such as chatbots, image and video generation as well.
+
+## Paid Coding Plans
+
+### OpenAI
+The OpenAI Plus plan gives you access to GPT-6 Astra and GPT-5.6 (Sol, Terra, Luna) on their applications as well as Codex. These are the latest frontier models from OpenAI. This subscription can be used in [Codex](https://openai.com/codex) as well as other coding agents of your choice (Pi, OpenCode). This makes it one of the best and most flexible plans available as it doesn't lock you to their own proprietary harness and follows the standard `AGENTS.md` and `.agents` specifications for skills and context.
+
+**Pricing: $20/mo** 
+
+**Free Trial**: ChatGPT frequently offers its plus plan for free for a month for users who haven't used a paid plan before. If this offer is available on your account, make sure to avail it.
+
+### Anthropic
+The Anthropic Pro plan gives you access to Claude Opus and Sonnet Models on their applications and also includes exclusive access to [Claude Code](https://claude.com/product/claude-code) and [Claude Design](https://claude.com/product/design).
+This gives you access to the best models available on the market and with products such as Claude Design, allows you to have a comprehensive design and development experience. 
+These models are only available within the Claude ecosystem. They cannot be used in another harness.  It follows the `CLAUDE.md` and `.claude` directory for skills and context.
+
+**Pricing: $20/mo** 
+
+**Free Trial**: Anthropic has an option for a seven day upgrade to their Pro plan but this requires a user with a paid plan already to share their referral link with you.
+
+<Callout type="note">You're required to add a payment method to avail the free trial on both Anthropic and OpenAI. However, your card is never charged (even for verification) and you can cancel your subscription immediately. You keep access to the paid plan till the end of the trial period.</Callout>
+
+## Free Coding Options
+
+### Google Antigravity
+If you have the Google AI Pro Plan initially offered to students back in October and November 2025 and more recently in August 2026, this gives you access to Google Antigravity. It has the following models:
+- Gemini Flash (3.8, 3.7, 3.6)
+- Gemini 3.1 Pro
+- Claude Sonnet 4.6 (Thinking)
+- Claude Opus 4.6 (Thinking)
+
+This is arguably the best options for students as it not only provides the latest Google models but also provides (outdated) Claude models with thinking capabilities that may be used to formulate plans or diagnose bugs the Google models may struggle with.
+
+**Pricing:** Free for Students with the Google AI Pro Plan. (NEVER PAY FOR GEMINI MODELS) 
+
+### OpenCode
+[OpenCode](https://opencode.ai) is an open source coding agent and provides several models for free with very generous rate limits.
+These include:
+- Nemotron 3 Ultra (NVIDIA)
+- Nemotron 3.5 Lightning (NVIDIA)
+- MiMo v2.5 (Xiaomi)
+ 
+They also frequently update their free model offerings with the latest models so be sure to be on the lookout for that.
+
+### Cline
+[Cline](https://cline.bot) is an open source coding agent and provides several models. It requires an account and provides better models then OpenCode.
+These includes:
+- GLM 5.3 Flash
+- DeepSeek v4.1 Flash
+
+## API Access
+
+### OpenRouter
+[OpenRouter](https://openrouter.ai) provides a single interface/API key for all coding models. It also offers a free agents router `openrouter/free` which automatically routes your request to one of several models that OpenRouter provides for free (NVIDIA Nemotron). This is espeically useful for things like chatbots, support agents, hermes bots or anything else you might require an API key for. This can also be used for agentic coding but you'll hit the rate limits very quickly.
+
+OpenRouter is also useful if you want access to stronger models without buying a full subscription. Models such as GLM 5.3 Flash and DeepSeek v4.1 Flash are available through API pricing. You only pay for what you use. This makes it a good middle ground between the free models and paying $20 every month for Claude or ChatGPT. Even a $5 credit can last a long time based on usage.
+
+#### Union Alpha
+Union Alpha `stealth/union-alpha` is a stealth model being offered by OpenCode, OpenRouter and Cline for the next week for free as of the writing of this article (2026-09-16).
+A stealth model is one released without a publicly disclosed developer to have the model be tested under real world production workflows.
+
+<Callout type="warning">It's very likely that you'll find Union Alpha to be relatively slow as a lot of people will be using the free endpoint.</Callout>
+
+## Recommendations
+
+| Budget | Recommendation |
+|---|---|
+| $20/mo | Claude Pro |
+| Free (Google AI Pro for Students) | Antigravity |
+| Free | OpenCode, Cline and OpenRouter |
+| OpenRouter PAYG | GLM 5.3 Flash or DeepSeek v4.1 Flash | 
+
+If you do not have the budget for Claude/ChatGPT and don't have Google Antigravity, then I recommend using a combination of Cline, OpenCode and OpenRouter to have access to Nemotron 3 Ultra and DeepSeek v4.1 Flash and GLM 5.3 Flash.
+
+## Conclusion
+
+This is the first article in a series as I'm planning to give a proper overview of the agentic development experience, based on what I've picked up over the last few months. I'll be covering topics including setting up your environment, spec files like `DESIGN.md` and `PRODUCT.md`, skills for UI design, writing minimal code, diagnosing bugs, and a version-controlled workflow with git, among others. I'll try to get these written this week so you have a proper walkthrough of the entire workflow.
+
+I think this is worth writing about because I've personally hit most of the pain points that come with working with AI day to day, and I can give more grounded insight than you'd get from just asking a chatbot.
+
+Thanks for reading. If you have any questions or just want to chat, feel free to reach out.
