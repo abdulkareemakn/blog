@@ -1,0 +1,252 @@
+---
+title: Setting Up Your Development Environment on Windows
+description: A beginner-friendly guide to setting up WSL, Git, SSH authentication and Docker on Windows.
+pubDatetime: 2026-09-27T00:00:00Z
+tags:
+  - windows
+  - linux
+  - git
+  - docker
+slug: setting-up-your-development-environment
+---
+
+## Introduction
+Hi everyone. In this article, I'll be setting up a complete development environment on Windows using WSL, Git and Docker. WSL gives us a Linux environment inside Windows. Git keeps track of changes to our code, and SSH lets us authenticate with GitHub without entering our password every time. Docker lets us run applications in containers without manually installing all of their dependencies on our machine.
+
+
+## Installing WSL
+WSL stands for Windows Subsystem for Linux. It lets us run a Linux distribution alongside Windows without setting up a traditional virtual machine or dual booting. We'll use Ubuntu, a popular Linux distribution with plenty of documentation and community support. You can read more about [installing WSL in Microsoft's documentation](https://learn.microsoft.com/en-us/windows/wsl/install).
+
+Open PowerShell as an administrator and run:
+```powershell
+wsl --install
+```
+
+If WSL was not installed before, restart your computer if prompted. The first time Ubuntu opens, it will ask you to create a Linux username and password. When you enter your password, it won't be shown in the terminal. Just type it and press Enter.
+
+It is possible to have WSL installed without having a Linux distribution installed. Check which distributions are available and which are already installed with:
+```powershell
+wsl --list --online
+wsl --list --verbose
+```
+
+Choose the latest Ubuntu LTS distribution shown by the first command and install it. For example, if the list includes `Ubuntu-26.04`, run:
+```powershell
+wsl --install --distribution Ubuntu-26.04
+```
+
+If you have already installed WSL but have no distribution, this command installs Ubuntu directly:
+```powershell
+wsl --install --distribution Ubuntu
+```
+
+The first command lists installable distributions and the second lists distributions already installed. Microsoft's [WSL installation guide](https://learn.microsoft.com/en-us/windows/wsl/install) has more details.
+
+You can launch Ubuntu from the Start menu or by using the Windows Terminal.
+
+<Callout type="note">
+Everything from this point onward is done inside WSL. Many development tools are designed for Linux, so setting them up there is often simpler than getting them to work directly on Windows. You can still use Windows apps like VS Code, so you won't have to use the terminal for everything.
+</Callout>
+
+
+
+### Filesystems and Storage
+Once you've set up WSL, create a projects directory in your Linux home folder:
+```sh
+mkdir -p ~/projects
+cd ~/projects
+```
+
+You can access your Windows files inside WSL because your drives are mounted under `/mnt/`.
+```
+Local Disk (C) -> /mnt/c
+Local Disk (D) -> /mnt/d
+```
+
+For development, keep your projects in the Linux filesystem under `~/projects`. Tools such as Docker work faster with files stored there than with files under `/mnt/c`.
+
+You can also access your Linux files from Windows. In File Explorer, open **Linux** in the sidebar to see your distributions. To find your user files, navigate to `/home/{username}` inside your Ubuntu distribution.
+
+## Using VS Code with WSL
+VS Code integrates with WSL so you can edit your files in Windows while running your development tools in Linux. Microsoft's [WSL and VS Code guide](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) explains how the connection works.
+
+Install [Visual Studio Code for Windows](https://code.visualstudio.com/), making sure to select **Add to PATH** in the installer. Then open VS Code and install the **WSL** extension by Microsoft from the Extensions view.
+
+From Ubuntu, create and open a project directory:
+```sh
+mkdir -p ~/projects/hello-git
+cd ~/projects/hello-git
+code .
+```
+
+The first time you do this, VS Code will install its server inside Ubuntu and open the folder in a new window. Check the lower-left corner of VS Code for an indicator that says `WSL: Ubuntu`. This means the window is connected to your Linux environment.
+
+When connected, the integrated terminal opens in Ubuntu, and commands such as Git and Docker use the versions configured there. Some extensions, especially language support and debuggers, also need to be installed in WSL. VS Code will show an **Install in WSL** button for extensions that need to run there. Themes and UI extensions can stay installed on Windows.
+
+## Installing Git
+Git is a version control system. It records changes to files over time, so we can see what changed, restore earlier versions and collaborate with others. This is even more important now with the rise of agentic development as you don't want an agent to delete all of your previous work and have no way to recover it.
+
+Update Ubuntu's package list and install Git:
+```sh
+sudo apt update
+sudo apt install git -y
+```
+
+Set the name and email address that Git will attach to your commits. Use the same email address you use for GitHub if you want your commits associated with your account.
+```sh
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --global init.defaultBranch main
+```
+
+Check that the settings were saved:
+```sh
+git config --global --list
+```
+
+If you want to learn more about Git, the [Pro Git book](https://git-scm.com/book/en/v2) is a free, detailed tutorial.
+
+## Setting up SSH for GitHub
+When we clone a private repository or push changes to GitHub, GitHub needs to know that the request is coming from our account. SSH keys let us authenticate securely without entering our GitHub password for every operation.
+
+An SSH key pair consists of a private key and a public key. The private key stays on our computer and should never be shared. We add the public key to GitHub so it can recognize our computer. GitHub's [SSH key guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) has additional details.
+
+### Generating an SSH key
+We'll add one SSH key pair to GitHub for authentication and commit signing. GitHub treats these as separate uses, so we'll add the same public key to our account once for each purpose.
+
+Generate an SSH key pair with the following command:
+
+```sh
+ssh-keygen -t ed25519 -C "you@example.com"
+```
+
+Replace `you@example.com` with the email address associated with your GitHub account.
+
+Press Enter to accept the default file location. When asked for a passphrase, you may set one or leave it blank. A passphrase adds security but I don't personally use one.
+
+Now print the public key and copy the entire output, starting with `ssh-ed25519`:
+```sh
+cat ~/.ssh/id_ed25519.pub
+```
+
+On GitHub, go to **Settings**, then **SSH and GPG keys**, select **New SSH key**, choose **Authentication Key**, and paste the public key. Give it a descriptive title such as `My Windows laptop` and save it. Be careful to add the `.pub` key. Never upload or share the private key file named `id_ed25519`.
+
+Add the same public key again, this time selecting **Signing Key** as the key type. GitHub needs to know separately that this key can authenticate and sign commits. You can read more in GitHub's [SSH key guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+
+Test the connection from Ubuntu:
+```sh
+ssh -T git@github.com
+```
+
+The first time, SSH will ask whether you trust GitHub's host key. Type `yes`. A successful connection will greet your GitHub username. GitHub may also mention that it does not provide shell access. That's expected, since we're only using SSH for Git operations.
+
+### Cloning a repository
+Now we can clone a repository using its SSH URL. On a GitHub repository page, select **Code**, then **SSH**, and copy the URL. It will look like `git@github.com:username/repository.git`.
+Replace `username` and `repository` with the values in the SSH URL you copied.
+```sh
+cd ~/projects
+git clone git@github.com:username/repository.git
+cd repository-name
+```
+
+Replace `repository-name` with the directory created by `git clone`, which is usually the name of the GitHub repository.
+
+## Installing Docker
+Docker runs applications inside containers. A container packages an application with the parts it needs to run, which helps it behave consistently across different computers. Docker images are the templates used to create containers.
+
+We'll install Docker Engine directly inside Ubuntu and use it from the command line. At the time of writing, Docker officially supports Ubuntu 22.04, 24.04 and 26.04 LTS. Check Docker's [official Ubuntu installation instructions](https://docs.docker.com/engine/install/ubuntu/) for the latest supported versions and more detailed installation options.
+
+### Enable systemd in WSL
+Docker runs as a background service. WSL supports systemd, which manages services such as Docker. Ubuntu releases installed through WSL may already have systemd enabled. To make sure it is enabled, edit `/etc/wsl.conf` in Ubuntu:
+```sh
+sudo nano /etc/wsl.conf
+```
+
+Add `systemd=true` under an existing `[boot]` section, or add both lines if the file doesn't have one. Preserve any other settings already in the file:
+```ini
+[boot]
+systemd=true
+```
+
+In nano, save with **Ctrl+O**, press Enter to confirm the filename, then exit with **Ctrl+X**. Run this command from PowerShell to restart WSL:
+```powershell
+wsl --shutdown
+```
+
+Open Ubuntu again. You can confirm systemd is running with:
+```sh
+ps -p 1 -o comm=
+```
+
+The command should print `systemd`.
+
+### Install Docker Engine
+Remove older or conflicting Docker packages if they are installed. It is fine if Ubuntu reports that some of them are not installed:
+```sh
+sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-compose-v2 docker-doc docker-buildx podman-docker containerd runc | cut -f1)
+```
+
+Add Docker's official package signing key and repository:
+```sh
+sudo apt update
+sudo apt install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+```
+
+Add Docker's official package repository to Ubuntu and refresh the package list:
+```sh
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
+sudo apt update
+```
+
+Install Docker Engine, the Docker command-line tool, and the Compose and Buildx plugins:
+```sh
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+Check that Docker is running. This should print `active`:
+```sh
+sudo systemctl is-active docker
+```
+
+If the service is not active, start it:
+```sh
+sudo systemctl start docker
+```
+
+Run the `hello-world` image to verify the installation:
+```sh
+sudo docker run hello-world
+```
+
+This downloads a small image, runs it in a container, prints a confirmation message and exits.
+
+Docker commands need `sudo` by default. To run them without `sudo`, add your user to the `docker` group:
+```sh
+sudo usermod -aG docker "$USER"
+```
+
+Close Ubuntu and open it again for the group change to take effect. Then verify Docker works without `sudo`:
+```sh
+docker run hello-world
+```
+
+The `docker` group grants privileges equivalent to root.
+See Docker's [post-installation instructions](https://docs.docker.com/engine/install/linux-postinstall/) for more information.
+
+You can now use Docker, Compose and Buildx from Ubuntu's command line. For example, `docker compose up` starts services described in a Compose file. The [full Docker Engine installation guide](https://docs.docker.com/engine/install/ubuntu/) covers upgrades, manual package installation and other options.
+
+## Conclusion
+We now have Ubuntu running inside Windows, VS Code connected to our Linux environment, Git tracking our projects, an SSH key registered with GitHub for authentication and signing, and Docker running containers. Keep your projects under `~/projects`, and run these development tools from the Ubuntu terminal.
+
+Thanks for reading. Goodbye.
