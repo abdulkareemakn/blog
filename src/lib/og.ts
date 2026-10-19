@@ -18,10 +18,10 @@ export async function ogImage(title: string) {
           width: "100%",
           height: "100%",
           padding: 72,
-          background: "#ffffff",
-          color: "#17171a",
+          background: "#f8efe7",
+          color: "#2c232e",
           fontFamily: "Geist",
-          borderTop: "12px solid #1a4fa0",
+          borderTop: "12px solid #ce4770",
         },
         children: [
           { type: "div", props: { style: { fontSize: 24 }, children: siteConfig.name } },
@@ -40,7 +40,7 @@ export async function ogImage(title: string) {
           {
             type: "div",
             props: {
-              style: { fontSize: 24, color: "#1a4fa0" },
+              style: { fontSize: 24, color: "#b83a62" },
               children: new URL(siteConfig.siteUrl).hostname,
             },
           },

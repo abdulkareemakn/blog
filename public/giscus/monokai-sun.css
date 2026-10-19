@@ -1,0 +1,87 @@
+/*!
+ * Giscus theme matching the Monokai Pro Light (Filter Sun) palette.
+ * Consumed by the comments embed via its custom-theme URL.
+ * Variable names follow the giscus / Primer theme contract.
+ */
+
+main {
+  --color-prettylights-syntax-comment: #8a8185;
+  --color-prettylights-syntax-constant: #6851a2;
+  --color-prettylights-syntax-entity: #2473b6;
+  --color-prettylights-syntax-storage-modifier-import: #2c232e;
+  --color-prettylights-syntax-entity-tag: #ce4770;
+  --color-prettylights-syntax-keyword: #ce4770;
+  --color-prettylights-syntax-string: #b16803;
+  --color-prettylights-syntax-variable: #d4572b;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #a63f1d;
+  --color-prettylights-syntax-invalid-illegal-text: #f8efe7;
+  --color-prettylights-syntax-invalid-illegal-bg: #a63f1d;
+  --color-prettylights-syntax-carriage-return-text: #f8efe7;
+  --color-prettylights-syntax-carriage-return-bg: #ce4770;
+  --color-prettylights-syntax-string-regexp: #218871;
+  --color-prettylights-syntax-markup-list: #2c232e;
+  --color-prettylights-syntax-markup-heading: #2473b6;
+  --color-prettylights-syntax-markup-italic: #2c232e;
+  --color-prettylights-syntax-markup-bold: #2c232e;
+  --color-prettylights-syntax-markup-deleted-text: #a63f1d;
+  --color-prettylights-syntax-markup-deleted-bg: rgb(166 63 29 / 12%);
+  --color-prettylights-syntax-markup-inserted-text: #1a6f5d;
+  --color-prettylights-syntax-markup-inserted-bg: rgb(26 111 93 / 12%);
+  --color-prettylights-syntax-markup-changed-text: #8a5002;
+  --color-prettylights-syntax-markup-changed-bg: rgb(138 80 2 / 12%);
+  --color-prettylights-syntax-markup-ignored-text: #f8efe7;
+  --color-prettylights-syntax-markup-ignored-bg: #92898a;
+  --color-prettylights-syntax-meta-diff-range: #6851a2;
+  --color-prettylights-syntax-brackethighlighter-angle: #92898a;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #a59c9c;
+  --color-prettylights-syntax-constant-other-reference-link: #218871;
+  --color-btn-text: #2c232e;
+  --color-btn-bg: #eee5de;
+  --color-btn-border: #ded5d0;
+  --color-btn-shadow: 0 1px 0 rgb(44 35 46 / 4%);
+  --color-btn-inset-shadow: inset 0 1px 0 rgb(255 255 255 / 25%);
+  --color-btn-hover-bg: #e3d9d3;
+  --color-btn-hover-border: #d2c9c4;
+  --color-btn-active-bg: #ded5d0;
+  --color-btn-active-border: #d2c9c4;
+  --color-btn-selected-bg: #ded5d0;
+  --color-btn-primary-text: #f8efe7;
+  --color-btn-primary-bg: #b83a62;
+  --color-btn-primary-border: #a83258;
+  --color-btn-primary-hover-bg: #a83258;
+  --color-btn-primary-hover-border: #8f2747;
+  --color-btn-primary-selected-bg: #8f2747;
+  --color-btn-primary-disabled-text: rgb(248 239 231 / 80%);
+  --color-btn-primary-disabled-bg: #d9a4b7;
+  --color-btn-primary-disabled-border: #ded5d0;
+  --color-action-list-item-default-hover-bg: rgb(44 35 46 / 7%);
+  --color-segmented-control-bg: #eee5de;
+  --color-segmented-control-button-bg: #fdf7f3;
+  --color-segmented-control-button-selected-border: #d2c9c4;
+  --color-fg-default: #2c232e;
+  --color-fg-muted: #6b6266;
+  --color-fg-subtle: #92898a;
+  --color-canvas-default: #f8efe7;
+  --color-canvas-overlay: #fdf7f3;
+  --color-canvas-inset: #fdf7f3;
+  --color-canvas-subtle: #eee5de;
+  --color-border-default: #ded5d0;
+  --color-border-muted: #e6ddd8;
+  --color-neutral-muted: rgb(44 35 46 / 8%);
+  --color-accent-fg: #b83a62;
+  --color-accent-emphasis: #b83a62;
+  --color-accent-muted: rgb(184 58 98 / 40%);
+  --color-accent-subtle: rgb(184 58 98 / 8%);
+  --color-success-fg: #1a6f5d;
+  --color-attention-fg: #8a5002;
+  --color-attention-muted: rgb(138 80 2 / 40%);
+  --color-attention-subtle: rgb(138 80 2 / 10%);
+  --color-danger-fg: #a63f1d;
+  --color-danger-muted: rgb(166 63 29 / 40%);
+  --color-danger-subtle: rgb(166 63 29 / 10%);
+  --color-primer-shadow-inset: inset 0 1px 0 rgb(255 255 255 / 25%);
+  --color-scale-gray-1: #eee5de;
+  --color-scale-blue-1: rgb(184 58 98 / 20%);
+  --color-social-reaction-bg-hover: var(--color-scale-gray-1);
+  --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-1);
+}

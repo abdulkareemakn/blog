@@ -1,6 +1,14 @@
+---
+import { siteConfig } from "@/config/site";
+
+/* Giscus loads its custom theme from an absolute URL, so it has to point at
+   the deployed site even when previewing the built output locally. */
+const giscusThemeBase = new URL("/giscus/", siteConfig.siteUrl).toString();
+---
+
 <section class="canvas mt-16 border-t border-border pt-8" aria-labelledby="comments-heading" data-pagefind-ignore>
   <h2 id="comments-heading" class="section-title">Comments</h2>
-  <div class="giscus"></div>
+  <div class="giscus" data-theme-base={giscusThemeBase}></div>
   <noscript>Enable JavaScript to view comments powered by Giscus.</noscript>
 </section>
 
@@ -8,6 +16,10 @@
   (() => {
     const container = document.querySelector(".giscus");
     const root = document.documentElement;
+    const themeBase = container?.dataset.themeBase ?? "";
+    /* Map the reader's mode onto the site's Monokai Giscus themes. */
+    const giscusTheme = (mode) =>
+      themeBase ? `${themeBase}monokai-${mode === "dark" ? "spectrum" : "sun"}.css` : mode;
     const script = document.createElement("script");
     script.src = "https://giscus.app/client.js";
     script.async = true;
@@ -22,13 +34,13 @@
       reactionsEnabled: "1",
       emitMetadata: "0",
       inputPosition: "top",
-      theme: root.dataset.theme,
+      theme: giscusTheme(root.dataset.theme),
       lang: "en",
     });
     const syncTheme = () => {
-      script.dataset.theme = root.dataset.theme;
+      script.dataset.theme = giscusTheme(root.dataset.theme);
       container.querySelector("iframe.giscus-frame")?.contentWindow?.postMessage(
-        { giscus: { setConfig: { theme: root.dataset.theme } } },
+        { giscus: { setConfig: { theme: giscusTheme(root.dataset.theme) } } },
         "https://giscus.app",
       );
     };

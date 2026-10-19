@@ -1,0 +1,87 @@
+/*!
+ * Giscus theme matching the Monokai Pro (Filter Spectrum) palette.
+ * Consumed by the comments embed via its custom-theme URL.
+ * Variable names follow the giscus / Primer theme contract.
+ */
+
+main {
+  --color-prettylights-syntax-comment: #8b888f;
+  --color-prettylights-syntax-constant: #948ae3;
+  --color-prettylights-syntax-entity: #5ad4e6;
+  --color-prettylights-syntax-storage-modifier-import: #f7f1ff;
+  --color-prettylights-syntax-entity-tag: #fc618d;
+  --color-prettylights-syntax-keyword: #fc618d;
+  --color-prettylights-syntax-string: #fce566;
+  --color-prettylights-syntax-variable: #fd9353;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #fc618d;
+  --color-prettylights-syntax-invalid-illegal-text: #222222;
+  --color-prettylights-syntax-invalid-illegal-bg: #fc618d;
+  --color-prettylights-syntax-carriage-return-text: #222222;
+  --color-prettylights-syntax-carriage-return-bg: #fc618d;
+  --color-prettylights-syntax-string-regexp: #7bd88f;
+  --color-prettylights-syntax-markup-list: #f7f1ff;
+  --color-prettylights-syntax-markup-heading: #5ad4e6;
+  --color-prettylights-syntax-markup-italic: #f7f1ff;
+  --color-prettylights-syntax-markup-bold: #f7f1ff;
+  --color-prettylights-syntax-markup-deleted-text: #fc618d;
+  --color-prettylights-syntax-markup-deleted-bg: rgb(252 97 141 / 15%);
+  --color-prettylights-syntax-markup-inserted-text: #7bd88f;
+  --color-prettylights-syntax-markup-inserted-bg: rgb(123 216 143 / 15%);
+  --color-prettylights-syntax-markup-changed-text: #fce566;
+  --color-prettylights-syntax-markup-changed-bg: rgb(252 229 102 / 15%);
+  --color-prettylights-syntax-markup-ignored-text: #222222;
+  --color-prettylights-syntax-markup-ignored-bg: #69676c;
+  --color-prettylights-syntax-meta-diff-range: #948ae3;
+  --color-prettylights-syntax-brackethighlighter-angle: #8b888f;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #69676c;
+  --color-prettylights-syntax-constant-other-reference-link: #948ae3;
+  --color-btn-text: #f7f1ff;
+  --color-btn-bg: #363537;
+  --color-btn-border: #525053;
+  --color-btn-shadow: 0 1px 0 rgb(0 0 0 / 10%);
+  --color-btn-inset-shadow: inset 0 1px 0 rgb(247 241 255 / 4%);
+  --color-btn-hover-bg: #3f3e40;
+  --color-btn-hover-border: #69676c;
+  --color-btn-active-bg: #454446;
+  --color-btn-active-border: #69676c;
+  --color-btn-selected-bg: #454446;
+  --color-btn-primary-text: #222222;
+  --color-btn-primary-bg: #fc618d;
+  --color-btn-primary-border: #fc618d;
+  --color-btn-primary-hover-bg: #ff7ba0;
+  --color-btn-primary-hover-border: #ff8bab;
+  --color-btn-primary-selected-bg: #e4557e;
+  --color-btn-primary-disabled-text: rgb(34 34 34 / 80%);
+  --color-btn-primary-disabled-bg: #7a3d52;
+  --color-btn-primary-disabled-border: #525053;
+  --color-action-list-item-default-hover-bg: rgb(247 241 255 / 8%);
+  --color-segmented-control-bg: #363537;
+  --color-segmented-control-button-bg: #2a2a2a;
+  --color-segmented-control-button-selected-border: #525053;
+  --color-fg-default: #f7f1ff;
+  --color-fg-muted: #bab6c0;
+  --color-fg-subtle: #8b888f;
+  --color-canvas-default: #222222;
+  --color-canvas-overlay: #2a2a2a;
+  --color-canvas-inset: #1b1b1b;
+  --color-canvas-subtle: #2a2a2a;
+  --color-border-default: #363537;
+  --color-border-muted: #2f2e30;
+  --color-neutral-muted: rgb(247 241 255 / 8%);
+  --color-accent-fg: #fc618d;
+  --color-accent-emphasis: #fc618d;
+  --color-accent-muted: rgb(252 97 141 / 40%);
+  --color-accent-subtle: rgb(252 97 141 / 10%);
+  --color-success-fg: #7bd88f;
+  --color-attention-fg: #fce566;
+  --color-attention-muted: rgb(252 229 102 / 40%);
+  --color-attention-subtle: rgb(252 229 102 / 10%);
+  --color-danger-fg: #fd9353;
+  --color-danger-muted: rgb(253 147 83 / 40%);
+  --color-danger-subtle: rgb(253 147 83 / 12%);
+  --color-primer-shadow-inset: inset 0 1px 0 rgb(247 241 255 / 5%);
+  --color-scale-gray-1: #363537;
+  --color-scale-blue-1: rgb(252 97 141 / 20%);
+  --color-social-reaction-bg-hover: var(--color-scale-gray-1);
+  --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-1);
+}

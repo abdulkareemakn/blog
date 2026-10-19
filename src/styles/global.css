@@ -58,25 +58,30 @@
 /* ------------------------------------------------------------------ tokens ---
  * Everything below is derived from these values. Editing this block is enough
  * to restyle the theme; individual components rarely need touching.
+ *
+ * Palette: Monokai Pro Light (Filter Sun) for light, Monokai Pro (Filter
+ * Spectrum) for dark. A few foregrounds are darkened slightly in the light
+ * theme so small text clears WCAG AA without changing the hue.
  */
 :root {
   color-scheme: light;
-  --background: #ffffff;
-  --card: #ffffff;
-  --muted: #f4f4f5;
-  --foreground: #17171a;
-  --muted-foreground: #6b6b73;
-  --primary: #17171a;
-  --primary-foreground: #ffffff;
-  --accent: #1a4fa0;
-  --accent-strong: #123a79;
-  --accent-foreground: #ffffff;
-  --border: #e6e6e8;
-  --border-strong: #d2d2d6;
+  --background: #f8efe7;
+  --card: #fdf7f3;
+  --muted: #eee5de;
+  --foreground: #2c232e;
+  --muted-foreground: #6b6266;
+  --primary: #2c232e;
+  --primary-foreground: #f8efe7;
+  --accent: #b83a62;
+  --accent-strong: #8f2747;
+  --accent-foreground: #f8efe7;
+  --border: #ded5d0;
+  --border-strong: #d2c9c4;
   /* Callout states. */
-  --tip: #0f7a52;
-  --warning: #8a5b06;
-  --danger: #b42318;
+  --tip: #1a6f5d;
+  --warning: #8a5002;
+  --danger: #a63f1d;
+  --code-background: #fdf7f3;
 
   /* Set --font-display to var(--font-serif) for an editorial serif masthead and
      headline set; body copy and UI keep the sans stack. */
@@ -115,21 +120,22 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --background: #101012;
-  --card: #16161a;
-  --muted: #1d1d21;
-  --foreground: #f2f2f3;
-  --muted-foreground: #a2a2aa;
-  --primary: #f2f2f3;
-  --primary-foreground: #101012;
-  --accent: #8ab4f8;
-  --accent-strong: #b3cffb;
-  --accent-foreground: #101012;
-  --border: #2a2a2f;
-  --border-strong: #45454c;
-  --tip: #34d399;
-  --warning: #fbbf24;
-  --danger: #f87171;
+  --background: #222222;
+  --card: #2a2a2a;
+  --muted: #363537;
+  --foreground: #f7f1ff;
+  --muted-foreground: #bab6c0;
+  --primary: #f7f1ff;
+  --primary-foreground: #222222;
+  --accent: #fc618d;
+  --accent-strong: #ff8bab;
+  --accent-foreground: #222222;
+  --border: #363537;
+  --border-strong: #525053;
+  --tip: #7bd88f;
+  --warning: #fce566;
+  --danger: #fd9353;
+  --code-background: #2a2a2a;
 }
 
 /* -------------------------------------------------------------------- base --- */

@@ -1,8 +1,10 @@
 import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 import { defineEcConfig } from "astro-expressive-code";
+import { monokaiSpectrum, monokaiSun } from "./ec.themes.mjs";
 
 export default defineEcConfig({
-  themes: ["github-light", "github-dark"],
+  themes: [monokaiSun, monokaiSpectrum],
+  minSyntaxHighlightingColorContrast: 0,
   useDarkModeMediaQuery: false,
   themeCssSelector: (theme) => `[data-theme="${theme.type}"]`,
   useThemedScrollbars: false,
@@ -20,7 +22,7 @@ export default defineEcConfig({
     borderColor: "var(--border)",
     borderRadius: "var(--radius-md)",
     borderWidth: "1px",
-    codeBackground: "var(--muted)",
+    codeBackground: "var(--code-background)",
     codeFontFamily: "var(--font-mono)",
     codeFontSize: "0.85rem",
     codeLineHeight: "1.7",

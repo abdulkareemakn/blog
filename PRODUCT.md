@@ -27,6 +27,12 @@ Task tracking belongs in Todoist under `blog/dev`, using `feature`, `chore`,
 - Render code blocks with Expressive Code using GitHub light and dark syntax
   themes. Titles and line numbers remain opt-in, Copy overlays untitled blocks
   without adding a toolbar row, and CodeGroup variants remain manually authored.
+- Present the site in a Monokai Pro palette: Light (Filter Sun) for the light
+  theme and (Filter Spectrum) for the dark theme. UI colours are derived from
+  the single token block in `src/styles/global.css`; code blocks use
+  hand-authored Shiki themes built from the same palette in `ec.themes.mjs`
+  (Monokai Pro files are not redistributable, so no theme JSON is vendored).
+  Giscus comments use custom themes served from `public/giscus/`.
 
 ## Integration and decision status
 
