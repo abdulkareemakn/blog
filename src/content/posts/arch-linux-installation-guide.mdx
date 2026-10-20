@@ -150,9 +150,15 @@ passwd
 #### Creating a new user
 
 ```sh
-useradd -m -G wheel docker -s $(which zsh) username
+useradd -m -G wheel -s $(which zsh) username
 passwd username
 ```
+
+```sh
+EDITOR=nvim visudo
+```
+
+Add your user to the wheel group.
 
 #### Reboot
 
@@ -165,16 +171,23 @@ systemctl reboot
 
 After the reboot, I use gdm to login to my hyprland session where the remaining configuration continues.
 
+#### Rust
+Installing Rust as it's a pre requisite for `paru`.
+```
+paru -S rustup
+rustup default stable
+```
+
 #### Installing an AUR helper
 
-My preferred AUR helper is `yay`.
+My preferred AUR helper is `paru`.
 
 ```sh
-git clone https://aur.archlinux.org/yay.git
+git clone https://aur.archlinux.org/paru.git
 cd yay
 makepkg -si
 cd ..
-rm -rf yay
+rm -rf paru
 ```
 
 #### Installing my packages
@@ -193,9 +206,45 @@ From the previous step, I have already cloned my dotfiles repository from GitHub
 stow bat btop dunst eza hyprland kitty lazygit nvim oh-my-posh rofi waybar yazi zsh
 ```
 
+#### Shell
+```sh
+paru -S zsh-completions zsh-autosuggestions zsh-fast-syntax-highlighting oh-my-posh-bin zoxide bat (pager) nerdfetch fzf-tab-git fastfetch
+```
+
+#### Browser
+I've been using the Helium Browser lately.
+```sh
+paru -S helium-browser-bin
+```
+
+#### Networking
+```sh
+paru -S wlctl vnstat
+sudo systemctl enable --now vnstat
+```
+
 #### Bluetooth
 ```sh
 paru -S bluez bluez-utils bluetui
+```
+
+#### Developer Tools
+```sh
+paru -S lazygit visual-studio-code-bin zed herdr-bin chatgpt-desktop git-delta hunkdiff pnpm mise curlie github-cli pacman-contrib uv ruff namcap shfmt restic rclone rsynx xz
+```
+
+
+#### Utilities
+```sh
+paru -S dua duf ripgrep fd onefetch doxx 
+```
+
+paru -S typst tinymist
+
+#### Interception Tools
+You can see the full article I wrote on interception-tools here. Insert link.
+```sh
+paru -S interception-tools interception-caps2esc
 ```
 
 #### Wallpapers
@@ -213,6 +262,72 @@ paru -S stylua lua-language-server
 ```sh
 paru -S playerctl brightnessctl
 ```
+
+paru -S fuse2
+for appimages
+
+#### Git Configuration
+
+#### Docker
+```sh
+paru -S docker docker-compose docker-buildx dockerfile-language-server lazydocker
+
+sudo usermod -aG docker abdulkareem
+sudo systemctl enable --now docker
+```
+
+
+
+#### Hyprland Utils
+```sh
+paru -S hypridle hyprlock hyprpicker hyprsunset
+```
+
+#### Graphics Driver Setup
+
+paru -S mesa
+paru -S vulkan-icd-loader
+paru -S intel-media-driver
+paru -S vulkan-intel
+
+
+paru -S rclone rsync restic xz
+paru -S alsa-utils pipewire pipewire-pulse pipewire-jack wireplumber
+
+sudo pacman -S pavucontrol
+
+paru -S go
+#### Games
+##### Minecraft
+
+paru -S xdg-user-dirs downgrade
+
+#### Fonts
+```sh
+JetBrains, Geist, 0xProto, Google Sans Code, MartianMono
+```
+
+#### Cursors 
+```sh
+paru -S capitaine-cursors bibata-cursor-theme
+```
+
+#### Icons
+```sh
+paru -S papirus-icon-theme
+```
+
+#### Downloads and Torrents
+I use Qbittorrent to download Linux ISOs.
+
+```sh
+paru -S qbittorrent
+```
+
+```sh
+paru -S paccache-hook
+```
+
 
 ### Conclusion
 
