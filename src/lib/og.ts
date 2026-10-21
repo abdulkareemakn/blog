@@ -3,8 +3,8 @@ import satori from "satori";
 import sharp from "sharp";
 import { siteConfig } from "@/config/site";
 
-const regular = await readFile("public/fonts/geist/Geist-Regular.ttf");
-const bold = await readFile("public/fonts/geist/Geist-Bold.ttf");
+const regular = await readFile("public/fonts/swansea/Swansea.ttf");
+const bold = await readFile("public/fonts/swansea/SwanseaBold.ttf");
 
 export async function ogImage(title: string) {
   const svg = await satori(
@@ -20,7 +20,7 @@ export async function ogImage(title: string) {
           padding: 72,
           background: "#f8efe7",
           color: "#2c232e",
-          fontFamily: "Geist",
+          fontFamily: "Swansea",
           borderTop: "12px solid #ce4770",
         },
         children: [
@@ -51,8 +51,8 @@ export async function ogImage(title: string) {
       width: 1200,
       height: 630,
       fonts: [
-        { name: "Geist", data: regular, weight: 400, style: "normal" },
-        { name: "Geist", data: bold, weight: 700, style: "normal" },
+        { name: "Swansea", data: regular, weight: 400, style: "normal" },
+        { name: "Swansea", data: bold, weight: 700, style: "normal" },
       ],
     },
   );
