@@ -328,6 +328,43 @@ paru -S qbittorrent
 paru -S paccache-hook
 ```
 
+#### AppImages
+- Paseo
+- Todoist
+- Wordcraft
+
+#### Flatpaks
+- Mission Center
+- Gear Lever
+
+### Applications
+- Photon Studio
+
+## Power Saving
+```sh
+paru -S tlp tlp-rdw
+
+sudo systemctl enable --now NetworkManager-dispatcher.service
+sudo systemctl enable --now tlp.service
+
+sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
+
+sudo mkdir -p /etc/tlp.d
+sudo tee /etc/tlp.d/01-custom.conf << 'EOF'
+# Runtime PM for PCIe devices on AC too (helps idle/s2idle drain)
+RUNTIME_PM_ON_AC=auto
+
+# Profiles: PRF on AC, BAL on battery are the defaults; tune CPU behavior per source
+CPU_ENERGY_PERF_POLICY_ON_AC=balance_performance
+CPU_ENERGY_PERF_POLICY_ON_BAT=power
+CPU_BOOST_ON_BAT=0
+
+# Keep Wi-Fi on at boot (TLP turns it off by default)
+DEVICES_TO_ENABLE_ON_STARTUP="wifi"
+EOF
+sudo tlp start
+```
+
 
 ### Conclusion
 
