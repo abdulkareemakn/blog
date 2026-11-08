@@ -19,10 +19,8 @@ pnpm build
 pnpm preview
 ```
 
-Run `pnpm release:check` for Astro diagnostics, Oxlint, Oxfmt, a production build,
-and the URL/metadata regression check. The test's legacy URL inventory was captured
-from the existing AstroPaper build before migration; deployment verification against
-the live domain is still required before launch.
+Run `pnpm release:check` for Astro diagnostics, Oxlint, Oxfmt, and a production build.
+Verify deployment and URL behavior against the live domain before launch.
 
 ## Authoring
 

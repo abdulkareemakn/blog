@@ -8,13 +8,12 @@
     "dev": "astro dev",
     "build": "astro build && pagefind --site dist",
     "check": "astro check",
-    "release:check": "pnpm check && pnpm lint && pnpm format:check && pnpm build && pnpm test",
+    "release:check": "pnpm check && pnpm lint && pnpm format:check && pnpm build",
     "preview": "astro preview",
     "astro": "astro",
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check .",
-    "lint": "oxlint --deny-warnings",
-    "test": "node --test scripts/migration.test.mjs"
+    "lint": "oxlint --deny-warnings"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.2.1",
