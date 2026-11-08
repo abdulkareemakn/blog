@@ -1,6 +1,6 @@
 # Abdul Kareem's Blog
 
-Monograph's Astro foundation, adapted for this single-author blog. Product decisions
+Based on [Monograph](https://xocothemes.com/themes/monograph/) by Andrei Alba, adapted for this single-author blog. Product decisions
 and deferred integrations are recorded in [PRODUCT.md](PRODUCT.md). Tasks belong in
 Todoist under `blog/dev`.
 
@@ -33,7 +33,7 @@ Posts use `/posts/<slug>/`; archive and tag pagination keep four posts per page 
 preserve existing page URLs. Numeric article slugs are reserved for pagination.
 Drafts are excluded; future-dated non-drafts publish immediately.
 
-Monograph's `Callout`, `CodeGroup`, and `CodeGroupItem` are registered for MDX.
+`Callout`, `CodeGroup`, and `CodeGroupItem` MDX components are registered.
 Package-manager examples use explicitly authored variants. Detailed code-block
 formatting uses Expressive Code with opt-in titles and line numbers; untitled
 blocks keep Copy overlaid in the upper-right without a separate toolbar row.
