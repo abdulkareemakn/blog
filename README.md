@@ -1,7 +1,6 @@
 # Abdul Kareem's Blog
 
-Based on [Monograph](https://xocothemes.com/themes/monograph/) by Andrei Alba, adapted for this single-author blog. Product decisions
-and deferred integrations are recorded in [PRODUCT.md](PRODUCT.md). Tasks belong in
+Based on [Monograph](https://xocothemes.com/themes/monograph/) by Andrei Alba, adapted for this single-author blog. Tasks belong in
 Todoist under `blog/dev`.
 
 ## Local development
@@ -25,8 +24,7 @@ Verify deployment and URL behavior against the live domain before launch.
 ## Authoring
 
 Existing Markdown, slugs, and media paths are retained. Frontmatter follows the
-single-author format recorded in `PRODUCT.md`; site identity lives in
-`src/config/site.ts`.
+single-author format; site identity lives in `src/config/site.ts`.
 Posts use `/posts/<slug>/`; archive and tag pagination keep four posts per page to
 preserve existing page URLs. Numeric article slugs are reserved for pagination.
 Drafts are excluded; future-dated non-drafts publish immediately.
